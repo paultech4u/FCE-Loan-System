@@ -1,12 +1,15 @@
 import React from "react";
 import { Box, Typography, Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-
+import WalletLogo from "../assets/walletLogo.jpeg";
+  
 function LandingPage(props) {
   const history = useHistory();
   return (
     <Box display="flex" alignItems="center" height={1}>
-      <Box flex={1}>Image</Box>
+      <Box display="flex" justifyContent="center" flex={1}>
+        <img src={WalletLogo} alt="logo" height={500} />
+      </Box>
       <Box display="flex" alignItems="center" flexDirection="column" flex={1}>
         <Box mb={10}>
           <Typography variant="h4" align="center">
@@ -22,7 +25,7 @@ function LandingPage(props) {
             color="primary"
             onClick={() => history.push("/login")}
           >
-            Get Started 
+            Get Started
           </Button>
         </Box>
       </Box>

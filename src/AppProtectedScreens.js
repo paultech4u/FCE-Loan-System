@@ -1,7 +1,8 @@
 import { Box } from "@material-ui/core";
-import { Switch } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import AppNavBar from "./AppNavBar";
 import AppSideBar from "./AppSideBar";
+import Dashboard from "./pages/dashboard";
 
 function AppProtectedScreens(params) {
   return (
@@ -10,7 +11,10 @@ function AppProtectedScreens(params) {
       <Box display="flex" flexDirection="column" flex={1}>
         <AppNavBar />
         <Box>
-          <Switch></Switch>
+          <Switch>
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Redirect exact to="/dashboard" />
+          </Switch>
         </Box>
       </Box>
     </Box>

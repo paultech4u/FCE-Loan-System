@@ -22,7 +22,7 @@ function AppNavBar(props) {
     >
       <Box>
         <TextField
-          id="search"
+          id="search_item"
           variant="outlined"
           placeholder="Search"
           InputProps={{

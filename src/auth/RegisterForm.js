@@ -8,13 +8,16 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import WalletLogo from "../assets/walletLogo.jpeg";
 
 function RegisterForm(props) {
   const classes = useStyles();
   const history = useHistory();
   return (
     <Box display="flex" alignItems="center" height={1}>
-      <Box flex={1}>Image</Box>
+      <Box display="flex" justifyContent="center" flex={1}>
+        <img src={WalletLogo} alt="logo" height={500} />
+      </Box>
       <Box display="flex" alignItems="center" flexDirection="column" flex={1}>
         <Box mb={10}>
           <Typography variant="h5">Sign Up</Typography>
@@ -57,7 +60,7 @@ function RegisterForm(props) {
             >
               Register
             </Button>
-            <Box mt={5} display="flex" justifyContent='center'>
+            <Box mt={5} display="flex" justifyContent="center">
               <Typography>Already have an account ?</Typography>
               <Typography
                 color="primary"

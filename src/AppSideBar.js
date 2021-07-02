@@ -7,7 +7,6 @@ import {
   ListItem,
   ListItemIcon,
   Box,
-  Divider,
   IconButton,
 } from "@material-ui/core";
 import { useHistory, useLocation } from "react-router-dom";
@@ -29,7 +28,6 @@ function AppSideBar(props) {
       classes={{ paper: clsx(classes.drawerBgColor, classes.drawer) }}
     >
       <Box className={classes.drawerToolbar} />
-      <Divider />
       <Box display="flex" flexDirection="column" flex={1}>
         <Box flex={2}>
           <List>
