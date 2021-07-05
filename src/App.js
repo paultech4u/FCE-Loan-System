@@ -17,7 +17,7 @@ function App() {
         <CssBaseline />
         <GlobalCss />
         {isAuthenticated === true ? (
-          <AppProtectedScreens />
+          <AppProtectedScreens onPressed={toggleScreensViews} />
         ) : (
           <AuthScreens onPressed={toggleScreensViews} />
         )}

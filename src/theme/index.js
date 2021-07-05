@@ -12,7 +12,8 @@ const spacing = 2;
 
 const theme = createMuiTheme({
   palette: {
-    // primary: { main: '#8256DE', light: '#8c14fc', dark: '#663399' },
+    primary: { main: '#2ecc71', light: '#7befb2', dark: '#019875' },
+    secondary: {main: '#d2527f'}
   },
   breakpoints: {
     values: {

@@ -6,6 +6,7 @@ import {
   makeStyles,
   TextField,
   InputAdornment,
+  Badge,
 } from "@material-ui/core";
 import PowerSettingNew from "@material-ui/icons/PowerSettingsNew";
 import Notifications from "@material-ui/icons/Notifications";
@@ -13,6 +14,7 @@ import { Search } from "@material-ui/icons";
 
 function AppNavBar(props) {
   const classes = useStyles();
+
   return (
     <AppBar
       position="static"
@@ -37,11 +39,13 @@ function AppNavBar(props) {
       <Box display="flex">
         <Box>
           <IconButton>
-            <Notifications fontSize="large" />
+            <Badge color='primary' badgeContent={1}>
+              <Notifications fontSize="large" />
+            </Badge>
           </IconButton>
         </Box>
         <Box>
-          <IconButton>
+          <IconButton onClick={props.onPressed}>
             <PowerSettingNew fontSize="large" />
           </IconButton>
         </Box>

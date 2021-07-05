@@ -68,7 +68,7 @@ const drawerListItem = [
   },
   {
     icon: <Style fontSize="large" style={{ color: "white" }} />,
-    href: "/stock",
+    href: "/loan",
   },
   {
     icon: <Save fontSize="large" style={{ color: "white" }} />,

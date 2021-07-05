@@ -15,10 +15,10 @@ function AuthScreens(props) {
       className={classes.container}
     >
       <Switch>
-        <Route exact path="/main" component={LandingPage} />
-        <Route exact path="/login" component={() => LoginForm(props)} />
-        <Route exact path="/register" component={RegisterForm} />
-        <Redirect exact to="/main" />
+        <Route path="/main" component={LandingPage} />
+        <Route path="/login" component={() => LoginForm(props)} />
+        <Route path="/register" component={RegisterForm} />
+        <Redirect exact to="/login" />
       </Switch>
     </Box>
   );
