@@ -3,7 +3,7 @@ import theme, { GlobalCss } from "./theme";
 import { CssBaseline, MuiThemeProvider } from "@material-ui/core";
 import { BrowserRouter } from "react-router-dom";
 import AuthScreens from "./auth";
-import AppProtectedScreens from "./AppProtectedScreens";
+import AppLayout from "./container/AppLayout";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
@@ -17,7 +17,7 @@ function App() {
         <CssBaseline />
         <GlobalCss />
         {isAuthenticated === true ? (
-          <AppProtectedScreens onPressed={toggleScreensViews} />
+          <AppLayout onPressed={toggleScreensViews} />
         ) : (
           <AuthScreens onPressed={toggleScreensViews} />
         )}
