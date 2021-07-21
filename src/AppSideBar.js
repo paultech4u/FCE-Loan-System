@@ -6,11 +6,16 @@ import {
   List,
   ListItem,
   ListItemIcon,
+  ListItemText,
   Box,
-  IconButton,
+  Button,
 } from "@material-ui/core";
 import { useHistory, useLocation } from "react-router-dom";
-import { Dashboard, Euro, Save, Settings, Style } from "@material-ui/icons";
+import {
+  AttachMoney,
+  Dashboard,
+  Payment
+} from "@material-ui/icons";
 
 function AppSideBar(props) {
   const classes = useStyles();
@@ -31,7 +36,7 @@ function AppSideBar(props) {
       <Box display="flex" flexDirection="column" flex={1}>
         <Box flex={2}>
           <List>
-            {drawerItems.map(({ icon, href }) => (
+            {drawerItems.map(({ icon, href, title }) => (
               <ListItem
                 button
                 onClick={() => history.push(href)}
@@ -41,6 +46,7 @@ function AppSideBar(props) {
                 key={href}
               >
                 <ListItemIcon>{icon}</ListItemIcon>
+                <ListItemText primary={title} />
               </ListItem>
             ))}
           </List>
@@ -52,9 +58,13 @@ function AppSideBar(props) {
           alignItems="center"
           flex={1}
         >
-          <IconButton color="secondary" onClick={props.onLogout}>
-            <Settings fontSize="large" />
-          </IconButton>
+          <Button
+            color="secondary"
+            variant="contained"
+            onClick={props.onPressed}
+          >
+            Logout
+          </Button>
         </Box>
       </Box>
     </Drawer>
@@ -65,18 +75,17 @@ const drawerListItem = [
   {
     icon: <Dashboard fontSize="large" style={{ color: "white" }} />,
     href: "/dashboard",
+    title: "Dashboard",
   },
   {
-    icon: <Style fontSize="large" style={{ color: "white" }} />,
+    icon: <Payment fontSize="large" style={{ color: "white" }} />,
+    href: "/deposit",
+    title: "Deposit",
+  },
+  {
+    icon: <AttachMoney fontSize="large" style={{ color: "white" }} />,
     href: "/loan",
-  },
-  {
-    icon: <Save fontSize="large" style={{ color: "white" }} />,
-    href: "/orders",
-  },
-  {
-    icon: <Euro fontSize="large" style={{ color: "white" }} />,
-    href: "/tracked-orders",
+    title: "Loan",
   },
 ];
 
@@ -84,18 +93,16 @@ export default AppSideBar;
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
-    width: 70,
+    width: 300,
   },
   drawerBgColor: {
+    width: 300,
     color: theme.palette.common.white,
     backgroundColor: theme.palette.primary.main,
   },
   drawerToolbar: theme.mixins.toolbar,
   drawerItem: {
     marginBottom: 20,
-    "& .MuiListItemIcon-root": {
-      minWidth: 0,
-    },
   },
   drawerItemActive: {
     backgroundColor: theme.palette.secondary.light,

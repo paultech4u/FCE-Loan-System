@@ -12,9 +12,9 @@ import {
   useTheme,
 } from "@material-ui/core";
 import { ArrowForward } from "@material-ui/icons";
-import LoanImage from "../assets/loan.jpg";
+import DepositeImg from "../assets/deposit.jpg";
 
-function Wallet(params) {
+function Saving(params) {
   const theme = useTheme();
   return (
     <Box p={40} display="flex" flex={1}>
@@ -34,9 +34,15 @@ function Wallet(params) {
         <Box display="flex">
           <Box display="flex" flex={1}>
             {[
-              { type: "Soft Loan", text: "Click to take a soft loan" },
-              { type: "Long Loan", text: "Click to take a Long loan" },
-              { type: "Purchase", text: "Click here to purchase" },
+              {
+                type: "Target Savings",
+                text: "Click to reach a specific savings target",
+              },
+              { type: "Flex Savings", text: "Click to save to flex savings" },
+              {
+                type: "Emergency Plan",
+                text: "Click here if there is an issue",
+              },
             ].map(({ type, text }, index) => (
               <CardItem key={index} type={type} text={text} />
             ))}
@@ -76,13 +82,13 @@ function Wallet(params) {
   );
 }
 
-export default Wallet;
+export default Saving;
 
 const CardItem = (props) => {
   const classes = useStyles();
   return (
     <Card className={classes.cardContainer}>
-      <CardMedia className={classes.cardMedia} image={LoanImage} title="Loan" />
+      <CardMedia className={classes.cardMedia} image={DepositeImg} title="Loan" />
       <CardContent>
         <Typography variant="h6">{props.type}</Typography>
         <Typography>{props.text}</Typography>

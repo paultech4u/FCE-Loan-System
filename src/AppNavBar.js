@@ -7,13 +7,14 @@ import {
   TextField,
   InputAdornment,
   Badge,
+  Avatar,
 } from "@material-ui/core";
-import PowerSettingNew from "@material-ui/icons/PowerSettingsNew";
-import Notifications from "@material-ui/icons/Notifications";
-import { Search } from "@material-ui/icons";
+import { Search, Settings, Notifications } from "@material-ui/icons";
+import { useHistory } from "react-router-dom";
 
 function AppNavBar(props) {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <AppBar
@@ -36,18 +37,27 @@ function AppNavBar(props) {
           }}
         />
       </Box>
-      <Box display="flex">
-        <Box>
+      <Box display="flex" alignItems="center">
+        <Box mr={40}>
           <IconButton>
-            <Badge color='primary' badgeContent={1}>
+            <Badge color="primary" badgeContent={"9+"}>
               <Notifications fontSize="large" />
             </Badge>
           </IconButton>
         </Box>
-        <Box>
-          <IconButton onClick={props.onPressed}>
-            <PowerSettingNew fontSize="large" />
+        <Box mr={40}>
+          <IconButton>
+            <Settings fontSize="large" />
           </IconButton>
+        </Box>
+        <Box mr={10}>
+          <Avatar
+            alt="profile"
+            style={{ cursor: "pointer" }}
+            onClick={() => history.push("/profile")}
+          >
+            A
+          </Avatar>
         </Box>
       </Box>
     </AppBar>
