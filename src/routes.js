@@ -1,7 +1,7 @@
-import Dashboard from "./pages/Dashboard";
-import Loan from "./pages/Loan";
-import Saving from "./pages/Saving";
-import Profile from "./pages/Profile";
+import Dashboard from "./views/dashboard/Dashboard";
+import Loan from "./views/Loan";
+import Saving from "./views/Saving";
+import Profile from "./views/Profile";
 
 const routes = [
   { path: "/", exact: true, name: "Dashboard", component: Dashboard },

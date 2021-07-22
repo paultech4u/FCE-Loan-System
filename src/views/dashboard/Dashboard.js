@@ -8,7 +8,8 @@ import {
   Divider,
   Button,
 } from "@material-ui/core";
-import profilePlaceholder from '../assets/profile_placeholder.png'
+import profilePlaceholder from "../../assets/profile_placeholder.png";
+import { ProgressStatus } from "../../components/Progress";
 
 function Dashboard(params) {
   const theme = useTheme();
@@ -60,14 +61,25 @@ function Dashboard(params) {
               Transaction History
             </Typography>
           </Box>
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
-            flex={1}
-          >
-            <Typography>No History</Typography>
+          <Box display="flex" flexDirection="column" flex={1}>
+            {mockTrns.length === 0 ? (
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                flex={1}
+              >
+                <Typography>No History</Typography>
+              </Box>
+            ) : (
+              mockTrns.map((values, index) => (
+                <Box key={index} display="flex" bgcolor="yellow">
+                  <Typography>{values.description}</Typography>
+                  <Typography>{values.amount}</Typography>
+                  <Typography>{values.date}</Typography>
+                </Box>
+              ))
+            )}
           </Box>
         </Paper>
       </Box>
@@ -81,7 +93,11 @@ function Dashboard(params) {
         }}
       >
         <Box display="flex" justifyContent="center">
-          <Avatar alt="profile_picture" src={profilePlaceholder} style={{ width: 250, height: 250 }}>
+          <Avatar
+            alt="profile_picture"
+            src={profilePlaceholder}
+            style={{ width: 250, height: 250 }}
+          >
             C
           </Avatar>
         </Box>
@@ -94,6 +110,10 @@ function Dashboard(params) {
             Edit Profile
           </Button>
         </Box>
+        <Box>
+          <Typography>Loan Status</Typography>
+          <ProgressStatus value={50} />
+        </Box>
       </Paper>
     </Box>
   );
@@ -105,4 +125,12 @@ const mockDetails = [
   { type: "Current Loan", amount: 5000 },
   { type: "Loan Balance", amount: 3000 },
   { type: "Account Balance", amount: 2000 },
+];
+
+const mockTrns = [
+  {
+    description: "Fund Transfer to Musa Musa was successful",
+    amount: 10000,
+    date: "10-July-2021",
+  },
 ];
