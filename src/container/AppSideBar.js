@@ -11,11 +11,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { useHistory, useLocation } from "react-router-dom";
-import {
-  AttachMoney,
-  Dashboard,
-  Payment
-} from "@material-ui/icons";
+import { AttachMoney, Dashboard, Payment, People } from "@material-ui/icons";
 
 function AppSideBar(props) {
   const classes = useStyles();
@@ -23,6 +19,10 @@ function AppSideBar(props) {
   const location = useLocation();
 
   const drawerItems = React.useMemo(() => drawerListItem, []);
+  const drawerItemsAdmin = React.useMemo(() => drawerListItemAdmin, []);
+
+  const isAdmin = true;
+  const isLoggedIn = true;
 
   return (
     <Drawer
@@ -36,19 +36,33 @@ function AppSideBar(props) {
       <Box display="flex" flexDirection="column" flex={1}>
         <Box flex={2}>
           <List>
-            {drawerItems.map(({ icon, href, title }) => (
-              <ListItem
-                button
-                onClick={() => history.push(href)}
-                className={clsx(classes.drawerItem, {
-                  [classes.drawerItemActive]: location.pathname === href,
-                })}
-                key={href}
-              >
-                <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={title} />
-              </ListItem>
-            ))}
+            {isLoggedIn && isAdmin === false
+              ? drawerItemsAdmin.map(({ icon, href, title }) => (
+                  <ListItem
+                    button
+                    onClick={() => history.push(href)}
+                    className={clsx(classes.drawerItem, {
+                      [classes.drawerItemActive]: location.pathname === href,
+                    })}
+                    key={href}
+                  >
+                    <ListItemIcon>{icon}</ListItemIcon>
+                    <ListItemText primary={title} />
+                  </ListItem>
+                ))
+              : drawerItems.map(({ icon, href, title }) => (
+                  <ListItem
+                    button
+                    onClick={() => history.push(href)}
+                    className={clsx(classes.drawerItem, {
+                      [classes.drawerItemActive]: location.pathname === href,
+                    })}
+                    key={href}
+                  >
+                    <ListItemIcon>{icon}</ListItemIcon>
+                    <ListItemText primary={title} />
+                  </ListItem>
+                ))}
           </List>
         </Box>
 
@@ -85,6 +99,29 @@ const drawerListItem = [
   {
     icon: <AttachMoney fontSize="large" style={{ color: "white" }} />,
     href: "/loan",
+    title: "Loan",
+  },
+];
+
+const drawerListItemAdmin = [
+  {
+    icon: <Dashboard fontSize="large" style={{ color: "white" }} />,
+    href: "/dashboard",
+    title: "Dashboard",
+  },
+  {
+    icon: <People fontSize="large" style={{ color: "white" }} />,
+    href: "/users",
+    title: "Users",
+  },
+  {
+    icon: <Payment fontSize="large" style={{ color: "white" }} />,
+    href: "/admin/deposit",
+    title: "Deposit",
+  },
+  {
+    icon: <AttachMoney fontSize="large" style={{ color: "white" }} />,
+    href: "/admin/loans",
     title: "Loan",
   },
 ];

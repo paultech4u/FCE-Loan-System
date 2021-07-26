@@ -40,8 +40,8 @@ function Saving(params) {
               },
               { type: "Flex Savings", text: "Click to save to flex savings" },
               {
-                type: "Emergency Plan",
-                text: "Click here if there is an issue",
+                type: "Pay Back Loan",
+                text: "Click to pay back loan",
               },
             ].map(({ type, text }, index) => (
               <CardItem key={index} type={type} text={text} />

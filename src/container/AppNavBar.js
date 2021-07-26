@@ -38,16 +38,19 @@ function AppNavBar(props) {
         />
       </Box>
       <Box display="flex" alignItems="center">
-        <Box mr={40}>
+        <Box mr={20}>
           <IconButton>
             <Badge color="primary" badgeContent={"9+"}>
               <Notifications fontSize="large" />
             </Badge>
           </IconButton>
         </Box>
-        <Box mr={40}>
+        <Box mr={20}>
           <IconButton>
-            <Settings fontSize="large" />
+            <Settings
+              fontSize="large"
+              onClick={() => history.push("/setting")}
+            />
           </IconButton>
         </Box>
         <Box mr={10}>

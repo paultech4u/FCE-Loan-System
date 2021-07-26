@@ -12,7 +12,8 @@ import {
   useTheme,
 } from "@material-ui/core";
 import { ArrowForward } from "@material-ui/icons";
-import LoanImage from "../assets/loan.jpg";
+import LoanImage from "../../assets/loan.jpg";
+import { AddCreditCard } from "../../components/AddCreditCard"
 
 function Wallet(params) {
   const theme = useTheme();
